@@ -5,10 +5,11 @@ const cors = require('cors');
 const knex = require('knex')({
     client: 'pg',
     connection: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: {
-        rejectUnauthorized: false
-      }
+        host : '127.0.0.1',
+      port : 5432,
+      user : 'postgres',
+      password : '',
+      database : 'face-brain'
     }
   });
   
@@ -48,7 +49,7 @@ const database = {
 
 
 app.get('/', (req, res)=>{
-    res.send(database.users)
+    res.send('it is working')
 }) 
 
 app.post('/signin',(req,res)=>{
